@@ -32,10 +32,11 @@ export default function App() {
   };
 
   const handleLogOut = async () => {
-    const res = await request.delete(
-      'http://localhost:7890/api/v1/github/sessions'
-    );
-    console.log(res);
+    const res = await request
+      .delete('http://localhost:7890/api/v1/github/sessions')
+      .withCredentials();
+    alert(res.body.message);
+    window.location.reload();
   };
 
   useEffect(() => {
